@@ -2,7 +2,7 @@ TURNO = ["Matutino", "Vespertino", "Noturno"]
 CATEROGIAS = ["Gerente", "Operacional"]
 SM = 1320
 
-PORCENTAGENS = {"Gerente": {"Noturno": 0.1, "Matutino": 0.15, "Vespertino": 0.15}, "Operacional": {"Noturno": 0.9, "Matutino": 0.14, "Vespertino": 0.14}}
+PORCENTAGENS = {"Gerente": {"Noturno": 0.1, "Matutino": 0.15, "Vespertino": 0.15}, "Operacional": {"Noturno": 0.09, "Matutino": 0.14, "Vespertino": 0.14}}
 
 nome = input("Digite seu nome: ")
 horasTrabalhadas = int(input("Digite a quantidade de horas trabalhadas no mês: "))
