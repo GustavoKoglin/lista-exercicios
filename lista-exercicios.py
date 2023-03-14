@@ -1,25 +1,23 @@
-categoria = input("Digite sua categoria: Gerente ou Operário \n")
-periodo = input("Digite seu turno: matutino, vespertino ou noturno \n")
-g="Gerente"
-o="Operário"
-m="matutino"
-v="vespertino"
-n="noturno"
-sm = 1300
+TURNO = ["Matutino", "Vespertino", "Noturno"]
+CATEROGIAS = ["Gerente", "Operacional"]
+SM = 1320
 
-categoria=[g, o]
-turno=[m, v, n]
+PORCENTAGENS = {"Gerente": {"Noturno": 0.1, "Matutino": 0.15, "Vespertino": 0.15}, "Operacional": {"Noturno": 0.9, "Matutino": 0.14, "Vespertino": 0.14}}
 
-if categoria == "g" and periodo == "n":
-    print("Sua hora trabalhada é", + sm * 0.10)
+nome = input("Digite seu nome: ")
+horasTrabalhadas = int(input("Digite a quantidade de horas trabalhadas no mês: "))
+turno = input(f"Turno {TURNO}: ")
+categoria = input(f"Categoria {CATEROGIAS}: ")
 
-else categoria == "g" and periodo == "m" or periodo == "v":
-    print("Sua hora trabalhada é", + sm * 0.15)
+try:
+    assert turno in TURNO and categoria in CATEROGIAS
+    assert len(nome) > 0 and horasTrabalhadas > 0
+except AssertionError:
+    print("Dados inválidos, finalizando programa")
+    exit()
 
-else categoria == "o" and periodo == "n":
-    print("Sua hora trabalhada é", + sm * 0.09)
+valorHoraTrabalhada = PORCENTAGENS[categoria][turno]
 
-else categoria == "o" and periodo == "m" or periodo == "v":
-    print("Sua hora trabalhada é", + sm * 0.14)
-else:
-    print("Categoria ou turno inválido") 
+remuneracao = (valorHoraTrabalhada * SM) * horasTrabalhadas
+
+print(f"{nome}, O seu salário é de R${remuneracao}")
